@@ -54,3 +54,5 @@ fetch("/api/gallery")
       gallery.appendChild(div);
     });
   });
+
+  

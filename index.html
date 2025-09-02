@@ -7,7 +7,7 @@
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Jacquard+24&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Special+Gothic+Expanded+One&display=swap" rel="stylesheet">
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.0/css/all.min.css" integrity="sha512-DxV+EoADOkOygM4IR9yXP8Sb2qwgidEmeqAEmDKIOfPRQZOWbXCzLC6vjbZyy0vPisbH2SyW27+ddLVCN+OMzQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
@@ -15,54 +15,137 @@
 
     <title>Elis Kroger</title>
 </head>
+
 <body>
-    <!--NAVBAR-->
-    <nav>
-        <div class="left">
-            <a href="/">Elis Kroger</a>
-        </div>
+  <!-- Splash screen -->
+  <div id="splash-screen">
+    <img src="logotype/Eldpojke trans.png" alt="Elis kroger Logo" class="splash-logo">
+  </div>
 
-
-        <div class="right">
-            <a href="https://www.instagram.com/elis.kroger/">
-             <i class="fa-brands fa-instagram"></i>
-             <span>Instagram</span>
-         </a>
-            
-         <a href="https://civilpolis.org:4533/radiocivil2/app/#/album/75fc3bd3d4de0d7201ae1ccd775eef83/show">
-             <i class="fa-solid fa-music"></i> 
-             <span>Musik</span>
-         </a>
-         
-         <a href="mailto: krogerelis234@gmail.com">
-             <i class="fa-solid fa-envelope"></i>
-             <span>Email</span>
-        
-         </a>
-     <div>
-  </nav>
-
-
-    <main>
-        <!--Section 1: Hero-->
-        <section></section>
-
-        <!--Section 2: Skills-->
-        <section></section>      
-
-        <!--Section 3: Testimony-->
-        <section></section>   
-
-        <!--Section 4: Contact-->
-        <section></section>                 
-
-
-
-
-
+  <!-- Main content -->
+  <div id="main-content" style="display: none;">
+    <!-- Your gallery here -->
+  </div>
 </body>
 
 <body>
+    <!--NAVBAR-->
+    <nav>
+     <div class="nav-left">
+         <div class="left-logo">
+             <video autoplay loop muted playsinline>
+                  <source src="webm/textelis.webm" type="video/webm">
+             </video>
+      </div>
+    </div>
+
+        <div class="nav-center">
+            <div class="logo">
+                <video autoplay loop muted playsinline>
+                    <source src="webm/logo-spinning.webm" type="video/webm">
+                </video>
+            </div>
+        </div>
+
+        <div class="nav-right">
+            <a href="https://www.instagram.com/elis.kroger/">
+                <i class="fa-brands fa-instagram"></i>
+            </a>
+
+            <a href="https://civilpolis.org:4533/radiocivil2/app/#/album/75fc3bd3d4de0d7201ae1ccd775eef83/show">
+                <i class="fa-solid fa-music"></i>
+            </a>
+
+            <a href="mailto:krogerelis234@gmail.com">
+                <i class="fa-solid fa-envelope"></i>
+            </a>
+        </div>
+    </nav>
+
+<style>
+body {
+    margin: 0;
+    font-family: sans-serif;
+}
+
+/* Navbar container */
+nav {
+    display: flex;
+    align-items: center;        /* vertical centering */
+    justify-content: space-between;
+    padding: 0 40px;            /* horizontal padding */
+    height: 160px;              /* increased navbar height for spacing */
+    box-sizing: border-box;
+    background: transparent;
+}
+
+/* Left and right sections shrink equally */
+.nav-left, .nav-right {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    flex: 1 1 0;     /* grow and shrink equally */
+    min-width: 0;    /* allow shrinking below content width */
+}
+
+
+
+.nav-right {
+    justify-content: flex-end;
+}
+
+/* Links style */
+.nav-left a, .nav-right a {
+    font-size: 25px;
+    color: #fff;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+}
+
+/* Center logo */
+.nav-center {
+    flex: 0 0 auto;          /* logo does not shrink or grow */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 20px;
+}
+
+.logo {
+    height: clamp(40px, 15vw, 100px);  /* dynamic scaling, max height 100px */
+    width: auto;
+    margin-top: 10px;                   /* breathing room from top */
+}
+
+.logo video {
+    height: 100%;
+    width: auto;
+    object-fit: contain;
+    pointer-events: none;
+}
+
+/* Responsive wrap on very small screens */
+@media (max-width: 480px) {
+    nav {
+        flex-wrap: wrap;
+        height: auto;
+        padding: 10px 20px;
+    }
+
+    .nav-left, .nav-right {
+        flex: 1 1 100%;
+        justify-content: center;
+        margin-bottom: 10px;
+    }
+
+    .nav-center {
+        margin: 10px 0;
+    }
+}
+</style>
+
+
 
 <!--gallery-->
 <!DOCTYPE html>
@@ -79,4 +162,21 @@
 
 <script src="script.js"></script>
 </body>
+
+<script>
+  window.addEventListener("load", () => {
+    const splash = document.getElementById("splash-screen");
+    const main = document.getElementById("main-content");
+
+    setTimeout(() => {
+      splash.style.opacity = "0"; // fade out
+      setTimeout(() => {
+        splash.style.display = "none"; // remove after fade
+        main.style.display = "block"; // show gallery
+      }, 1000); // match CSS transition
+    }, 1300); // keep splash for 1 second
+  });
+</script>
+
+
 </html>
