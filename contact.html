@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact Page</title>
+  <style>
+    /* ===========================
+       FULL-PAGE BACKGROUND
+    ============================ */
+    html, body {
+      margin: 0;
+      padding: 0;
+      height: 100%;
+      width: 100%;
+      font-family: Arial, sans-serif;
+      background: url('/logotype/Background texture.png') center center / cover no-repeat;
+      background-attachment: fixed;
+      color: #fff;
+    }
+
+ /* ===========================
+   NAVBAR
+=========================== */
+.navbar {
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 20px;
+  height: 100px;
+  background: transparent; /* show background texture */
+}
+
+/* ---------------------------
+   LEFT LOGO
+--------------------------- */
+.nav-left a {
+  display: inline-block;
+}
+.nav-left img.nav-gif,
+.nav-left video.nav-gif {
+  height: clamp(80px, 15vw, 160px);
+  width: auto;
+  display: block;
+  cursor: pointer;
+  pointer-events: auto;
+
+  /* Smooth transition for hover */
+  transition: transform 0.3s ease, filter 0.3s ease;
+}
+
+.nav-left img.nav-gif:hover,
+.nav-left video.nav-gif:hover {
+  transform: scale(1.05);                /* subtle zoom */
+  filter: drop-shadow(0 0 8px #ffffff); /* white glow */
+}
+
+/* ---------------------------
+   CENTER LOGO
+--------------------------- */
+.nav-center {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.nav-center img.nav-gif {
+  height: clamp(40px, 15vw, 100px); 
+  width: auto;
+  display: block;
+  cursor: pointer;
+  pointer-events: auto;
+
+  /* Smooth transition for hover */
+  transition: transform 0.3s ease, filter 0.3s ease;
+}
+
+.nav-center img.nav-gif:hover {
+  transform: scale(1.05);                /* subtle zoom */
+  filter: drop-shadow(0 0 8px #ffffff); /* white glow */
+}
+
+/* ---------------------------
+   RIGHT APNG LOGO
+--------------------------- */
+.nav-right a {
+  display: inline-block;
+}
+
+.nav-right img.nav-icon {
+  height: clamp(80px, 15vw, 160px);
+  width: auto;
+  display: block;
+  cursor: pointer;
+
+  /* Smooth transition for hover */
+  transition: transform 0.3s ease, filter 0.3s ease;
+}
+
+.nav-right img.nav-icon:hover {
+  transform: scale(1.05);                /* subtle zoom */
+  filter: drop-shadow(0 0 8px #ffffff); /* white glow */
+}
+
+
+    /* ===========================
+       CONTACT FORM
+    ============================ */
+    .contact-container {
+      max-width: 600px;
+      margin: 50px auto;
+      padding: 20px;
+      background: rgba(0,0,0,0.3);
+      box-sizing: border-box;
+    }
+    .contact-container h1 {
+      text-align: center;
+      margin-bottom: 20px;
+      font-size: clamp(24px, 5vw, 36px);
+    }
+    form {
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+    }
+    input, textarea {
+      width: 100%;
+      padding: 12px;
+      font-size: 16px;
+      border: none;
+      outline: none;
+      background: rgba(255,255,255,0.1);
+      color: #fff;
+    }
+    textarea {
+      resize: vertical;
+      min-height: 120px;
+    }
+    button {
+      width: 100%;
+      background: #4cafef;
+      color: #fff;
+      border: none;
+      padding: 12px;
+      cursor: pointer;
+      font-size: 16px;
+      transition: background 0.3s;
+    }
+    button:hover {
+      background: #379dd6;
+    }
+
+    /* LINKS BELOW FORM */
+    .links {
+      margin-top: 30px;
+      text-align: center;
+    }
+    .links a {
+      display: block;
+      margin: 10px 0;
+      color: #4cafef;
+      text-decoration: none;
+      font-size: 18px;
+      transition: color 0.3s;
+    }
+    .links a:hover {
+      color: #379dd6;
+    }
+
+    /* RESPONSIVE */
+    @media (max-width: 768px) {
+      .nav-left img.nav-gif,
+      .nav-center img.nav-gif,
+      .nav-right img.nav-icon {
+        height: clamp(40px, 12vw, 80px);
+      }
+      .contact-container {
+        margin: 30px 15px;
+      }
+      .links a {
+        font-size: 16px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAVBAR -->
+  <nav class="navbar">
+    <div class="nav-left">
+      <a href="index.html">
+        <img src="textnice.apng" alt="Text Logo" class="nav-gif">
+      </a>
+    </div>
+
+    <div class="nav-center">
+      <img src="logospin.apng" alt="Spinning Logo" class="nav-gif">
+    </div>
+
+    <div class="nav-right">
+      <a href="contact.html">
+        <img src="apng/Contact.apng" alt="Contact" class="nav-icon">
+      </a>
+    </div>
+  </nav>
+
+  <!-- CONTACT FORM -->
+  <div class="contact-container">
+    <h1>Inquiries</h1>
+    <form id="contactForm">
+      <input type="text" name="from_name" placeholder="Your Name" required>
+      <input type="email" name="reply_to" placeholder="Your Email" required>
+      <textarea name="message" placeholder="Your Message..." required></textarea>
+      <button type="submit">Send Message</button>
+    </form>
+
+    <div class="links">
+      <a href="https://www.instagram.com/elis.kroger/" target="_blank">Instagram: @elis.kroger</a>
+      <a href="mailto:krogerelis234@gmail.com">Email: krogerelis234@gmail.com</a>
+      <a href="YOUR_SPOTIFY_LINK" target="_blank">Spotify Page 1</a>
+      <a href="YOUR_SPOTIFY_LINK" target="_blank">Spotify Page 2</a>
+    </div>
+  </div>
+
+  <!-- EMAILJS SCRIPT -->
+  <script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
+  <script>
+    // Initialize EmailJS
+    (function(){
+      emailjs.init("YOUR_PUBLIC_KEY"); // Replace with your EmailJS public key
+    })();
+
+    const form = document.getElementById("contactForm");
+
+    form.addEventListener("submit", function(event) {
+      event.preventDefault();
+
+      emailjs.sendForm("YOUR_SERVICE_ID", "YOUR_TEMPLATE_ID", this)
+        .then(() => {
+          alert("✅ Message sent successfully!");
+          form.reset();
+        }, (error) => {
+          alert("❌ Failed to send message: " + JSON.stringify(error));
+        });
+    });
+  </script>
+
+</body>
+</html>
