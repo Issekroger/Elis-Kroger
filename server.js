@@ -1,5 +1,5 @@
 import express from "express";
-import fs from "fs";
+import fs, { appendFileSync } from "fs";
 import path from "path";
 
 const app = express();

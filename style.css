@@ -65,16 +65,20 @@ nav {
 }
 
 /* LEFT: animated WebM */
-.nav-left {
+.left-logo {
+  height: clamp(80px, 15vw, 160px); /* same as before */
+  width: auto;
   display: flex;
   align-items: center;
-  flex: 1 1 0;
-  min-width: 0;
+  justify-content: center;
 }
 
-.left-logo {
-  height: clamp(80px, 15vw, 160px); /* adjust size as needed */
-  width: auto;
+.left-logo img {
+  height: 100%;
+  width: auto;          /* keeps aspect ratio */
+  object-fit: contain;  /* ensures it fits inside container */
+  pointer-events: none; /* optional, if you don't want clicks */
+  display: block;       /* avoids inline spacing issues */
 }
 
 .left-logo video {
@@ -94,17 +98,22 @@ nav {
 }
 
 .logo {
-  height: clamp(40px, 15vw, 100px);
+  height: clamp(40px, 15vw, 100px); /* responsive height */
   width: auto;
   margin-top: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
-.logo video {
+.logo img {
   height: 100%;
-  width: auto;
-  object-fit: contain;
-  pointer-events: none;
+  width: auto;          /* maintain aspect ratio */
+  object-fit: contain;  /* scale proportionally within container */
+  pointer-events: none; /* optional, prevents clicks */
+  display: block;       /* remove inline spacing issues */
 }
+
 
 /* RIGHT icons */
 .nav-right {
