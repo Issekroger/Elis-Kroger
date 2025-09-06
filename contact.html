@@ -1,0 +1,74 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Special+Gothic+Expanded+One&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.0/css/all.min.css" integrity="sha512-DxV+EoADOkOygM4IR9yXP8Sb2qwgidEmeqAEmDKIOfPRQZOWbXCzLC6vjbZyy0vPisbH2SyW27+ddLVCN+OMzQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <link rel="stylesheet" href="style.css">
+
+    <title>Elis Kroger</title>
+</head>
+
+
+
+
+
+<nav class="nav-bar">
+
+  <!-- LEFT LOGO (clickable) -->
+  <div class="left-logo side-logo">
+    <a href="index.html">
+      <img src="apng/textnice.apng" alt="Left Logo">
+    </a>
+  </div>
+
+  <!-- CENTER LOGO (clickable) -->
+  <div class="nav-center">
+    <a href="index.html">
+      <img src="logospin.apng" alt="Center Logo">
+    </a>
+  </div>
+
+  <!-- RIGHT LOGO (clickable) -->
+  <div class="nav-right side-logo">
+    <a href="contact.html">
+      <img src="apng/Contactsista.apng" alt="Right Logo">
+    </a>
+  </div>
+
+</nav>
+
+<form id="inquiry-form" class="inquiry-form">
+  <h2>Inquiries</h2>
+
+  <label for="user_name">Name:</label>
+  <input type="text" id="user_name" name="user_name" placeholder="Your Name" required>
+
+  <label for="user_email">Email:</label>
+  <input type="email" id="user_email" name="user_email" placeholder="you@example.com" required>
+
+  <label for="message">Message:</label>
+  <textarea id="message" name="message" placeholder="Your message here..." required></textarea>
+
+  <button type="submit">Send Inquiry</button>
+
+  <p id="status" class="status-message"></p>
+</form>
+
+
+<script type="text/javascript"
+        src="https://cdn.emailjs.com/dist/email.min.js">
+</script>
+<script type="text/javascript">
+   (function(){
+      emailjs.init("YOUR_PUBLIC_KEY"); // replace with your EmailJS public key
+   })();
+</script>

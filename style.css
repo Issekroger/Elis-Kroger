@@ -29,6 +29,7 @@
 }
 
 
+
 *{
     margin: 0;
     padding: 0;
@@ -48,104 +49,82 @@ a{
     text-decoration: none;
 }
 
-/* NAVBAR */
-body {
-  margin: 0;
-  font-family: sans-serif;
+/* ----- VARIABLES ----- */
+:root {
+  --navbar-height: 80px;
+  --navbar-height-mobile: 50px;
+
+  --side-logo-img-height: 150px;        /* explicit image height */
+  --side-logo-img-height-mobile: 70px;
+
+  --center-logo-img-height: 95px;
+  --center-logo-img-height-mobile: 60px;
 }
 
-nav {
+
+/* ----- NAVBAR ----- */
+.nav-bar {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 0 40px;
-  height: 160px;
+  width: 100%;
+  height: var(--navbar-height);
+  padding: 0 0.5rem;
   box-sizing: border-box;
-  background: transparent;
-}
-
-/* LEFT: animated WebM */
-.left-logo {
-  height: clamp(80px, 15vw, 160px); /* same as before */
-  width: auto;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.left-logo img {
-  height: 100%;
-  width: auto;          /* keeps aspect ratio */
-  object-fit: contain;  /* ensures it fits inside container */
-  pointer-events: none; /* optional, if you don't want clicks */
-  display: block;       /* avoids inline spacing issues */
-}
-
-.left-logo video {
-  height: 100%;
-  width: auto;
-  object-fit: contain;
-  pointer-events: none;
-}
-
-/* CENTER logo */
-.nav-center {
-  flex: 0 0 auto;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin: 0 20px;
-}
-
-.logo {
-  height: clamp(40px, 15vw, 100px); /* responsive height */
-  width: auto;
-  margin-top: 10px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.logo img {
-  height: 100%;
-  width: auto;          /* maintain aspect ratio */
-  object-fit: contain;  /* scale proportionally within container */
-  pointer-events: none; /* optional, prevents clicks */
-  display: block;       /* remove inline spacing issues */
 }
 
 
-/* RIGHT icons */
+.side-logo,
+.nav-center,
 .nav-right {
   display: flex;
   align-items: center;
-  gap: 20px;
-  flex: 1 1 0;
-  min-width: 0;
-  justify-content: flex-end;
+  justify-content: center;
 }
 
-.nav-right a {
-  color: #fff;
-  text-decoration: none;
+.side-logo img {
+  height: var(--side-logo-img-height);
+  width: auto;
+  object-fit: contain;
+  display: block;
+  filter: drop-shadow(0 0 3px rgba(255,255,255,0.5));
+  transition: transform 0.3s ease, filter 0.3s ease;
+}
+
+.nav-center img {
+  height: var(--center-logo-img-height);
+  width: auto;
+  object-fit: contain;
+  display: block;
+  filter: drop-shadow(0 0 3px rgba(255,255,255,0.5));
+  transition: transform 0.3s ease, filter 0.3s ease;
 }
 
 
 
-@media (max-width: 600px) {
-    /* NAVBAR */
-    nav {
-        padding: 20;
-    }
-
-    nav .right a {
-        font-size: 22px;
-    }
-
-    nav .right a span {
-        display: none;
-    }
+/* Hover effect */
+.side-logo a:hover img,
+.nav-center a:hover img,
+.nav-right a:hover img {
+  transform: scale(1.05);
+  filter: drop-shadow(0 0 6px rgba(255,255,255,0.8));
 }
+
+/* Mobile responsiveness */
+@media (max-width: 768px) {
+  .nav-bar {
+    height: var(--navbar-height-mobile);
+  }
+  .side-logo img {
+    height: var(--side-logo-img-height-mobile);
+  }
+  .nav-center img {
+    height: var(--center-logo-img-height-mobile);
+  }
+}
+
+
+
 
 body {
   margin: 0;
@@ -167,7 +146,7 @@ body{
 @media (max-width: 1600px) { .video-gallery { column-count: 4; } }
 @media (max-width: 1200px) { .video-gallery { column-count: 3; } }
 @media (max-width: 900px)  { .video-gallery { column-count: 2; } }
-@media (max-width: 600px)  { .video-gallery { column-count: 1; } }
+@media (max-width: 600px)  { .video-gallery { column-count: 2; } }
 
 .gallery-item {
   display: inline-block;
@@ -214,4 +193,86 @@ body{
 .gallery-item:hover img,
 .gallery-item:hover video {
   transform: scale(1.05);
+}
+
+
+
+.inquiry-form {
+  max-width: 500px;
+  margin: 50px auto;
+  padding: 2rem;
+  background: #fdfdfd00;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif
+}
+
+.inquiry-form h2 {
+  text-align: center;
+  margin-bottom: 1.5rem;
+  color: #ffffff;
+}
+
+.inquiry-form label {
+  display: block;
+  margin-bottom: 0.3rem;
+  font-weight: bold;
+  color: #ffffff;
+}
+
+.inquiry-form input,
+.inquiry-form textarea {
+  width: 100%;
+  padding: 0.75rem 1rem;
+  margin-bottom: 1rem;
+  border: 1px solid #ccc;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+}
+
+.inquiry-form input:focus,
+.inquiry-form textarea:focus {
+  border-color: #ffffff;
+  box-shadow: 0 0 5px rgba(0,123,255,0.3);
+  outline: none;
+}
+
+.inquiry-form textarea {
+  resize: vertical;
+  min-height: 120px;
+}
+
+.inquiry-form button {
+  width: 100%;
+  padding: 0.75rem;
+  background-color: #ffffff;
+  color: rgb(0, 0, 0);
+  font-size: 1rem;
+  border: none;
+  cursor: pointer;
+  transition: background 0.3s ease, transform 0.2s ease;
+}
+
+.inquiry-form button:hover {
+  background-color: #ffffff;
+  transform: translateY(-2px);
+}
+
+.status-message {
+  margin-top: 1rem;
+  text-align: center;
+  font-weight: bold;
+  color: #333;
+}
+
+/* Mobile responsive */
+@media (max-width: 480px) {
+  .inquiry-form {
+    margin: 20px;
+    padding: 1.5rem;
+  }
+
+  .inquiry-form button {
+    font-size: 0.95rem;
+    padding: 0.65rem;
+  }
 }

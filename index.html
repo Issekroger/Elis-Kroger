@@ -28,121 +28,32 @@
   </div>
 </body>
 
-<body>
-  <!-- NAVBAR -->
-  <nav>
-    <div class="nav-left">
-      <div class="left-logo">
-        <img src="textnice.apng" alt="Text Logo" class="nav-gif">
-      </div>
-    </div>
+<nav class="nav-bar">
 
-    <div class="nav-center">
-      <div class="logo">
-        <img src="logospin.apng" alt="Spinning Logo" class="nav-gif">
-      </div>
-    </div>
+  <!-- LEFT LOGO (clickable) -->
+  <div class="left-logo side-logo">
+    <a href="index.html">
+      <img src="apng/textnice.apng" alt="Left Logo">
+    </a>
+  </div>
 
-    <div class="nav-right">
-      <!-- Example links with images -->
-      <a href="https://www.instagram.com/elis.kroger/">
-        <img src="icons/instagram.png" alt="Instagram" class="nav-icon">
-      </a>
+  <!-- CENTER LOGO (clickable) -->
+  <div class="nav-center">
+    <a href="index.html">
+      <img src="logospin.apng" alt="Center Logo">
+    </a>
+  </div>
 
-      <a href="https://civilpolis.org:4533/radiocivil2/app/#/album/75fc3bd3d4de0d7201ae1ccd775eef83/show">
-        <img src="icons/music.png" alt="Music" class="nav-icon">
-      </a>
+  <!-- RIGHT LOGO (clickable) -->
+  <div class="nav-right side-logo">
+    <a href="contact.html">
+      <img src="apng/Contactsista.apng" alt="Right Logo">
+    </a>
+  </div>
 
-      <a href="mailto:krogerelis234@gmail.com">
-        <img src="icons/email.png" alt="Email" class="nav-icon">
-      </a>
-    </div>
-  </nav>
-</body>
+</nav>
 
 
-<style>
-body {
-    margin: 0;
-    font-family: sans-serif;
-}
-
-/* Navbar container */
-nav {
-    display: flex;
-    align-items: center;        /* vertical centering */
-    justify-content: space-between;
-    padding: 0 40px;            /* horizontal padding */
-    height: 160px;              /* increased navbar height for spacing */
-    box-sizing: border-box;
-    background: transparent;
-}
-
-/* Left and right sections shrink equally */
-.nav-left, .nav-right {
-    display: flex;
-    align-items: center;
-    gap: 20px;
-    flex: 1 1 0;     /* grow and shrink equally */
-    min-width: 0;    /* allow shrinking below content width */
-}
-
-
-
-.nav-right {
-    justify-content: flex-end;
-}
-
-/* Links style */
-.nav-left a, .nav-right a {
-    font-size: 25px;
-    color: #fff;
-    text-decoration: none;
-    display: flex;
-    align-items: center;
-}
-
-/* Center logo */
-.nav-center {
-    flex: 0 0 auto;          /* logo does not shrink or grow */
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin: 0 20px;
-}
-
-.logo {
-    height: clamp(40px, 15vw, 100px);  /* dynamic scaling, max height 100px */
-    width: auto;
-    margin-top: 10px;                   /* breathing room from top */
-}
-
-.logo video {
-    height: 100%;
-    width: auto;
-    object-fit: contain;
-    pointer-events: none;
-}
-
-/* Responsive wrap on very small screens */
-@media (max-width: 480px) {
-    nav {
-        flex-wrap: wrap;
-        height: auto;
-        padding: 10px 20px;
-    }
-
-    .nav-left, .nav-right {
-        flex: 1 1 100%;
-        justify-content: center;
-        margin-bottom: 10px;
-    }
-
-    .nav-center {
-        margin: 10px 0;
-    }
-}
-</style>
 
 
 

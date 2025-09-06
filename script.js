@@ -55,4 +55,55 @@ fetch("/api/gallery")
     });
   });
 
+  // Change both side logos dynamically
+function setSideLogoSize(desktopHeight, mobileHeight) {
+  document.documentElement.style.setProperty('--side-logo-height', desktopHeight + 'px');
+  document.documentElement.style.setProperty('--side-logo-height-mobile', mobileHeight + 'px');
+}
+
+// Example usage: resize to 150px desktop, 100px mobile
+setSideLogoSize(150, 100);
+
+function setSideLogoSize(desktopHeight, mobileHeight) {
+  // Set desktop height
+  document.documentElement.style.setProperty('--side-logo-height', desktopHeight + 'px');
   
+  // Set mobile height
+  document.documentElement.style.setProperty('--side-logo-height-mobile', mobileHeight + 'px');
+}
+
+// Example usage: resize both logos
+setSideLogoSize(250, 100); // desktop 150px, mobile 100px
+
+
+
+document.addEventListener("DOMContentLoaded", () => {
+  const splash = document.getElementById("splash-screen");
+  const splashShown = sessionStorage.getItem("splashShown");
+
+  if (!splashShown) {
+    // Show splash for 2 seconds
+    setTimeout(() => {
+      splash.classList.add("hidden");
+      sessionStorage.setItem("splashShown", "true");
+    }, 2000); // 2 seconds
+  } else {
+    // Hide immediately if already shown this session
+    splash.style.display = "none";
+  }
+});
+
+
+document.getElementById('inquiry-form').addEventListener('submit', function(event) {
+    event.preventDefault();
+    const status = document.getElementById('status');
+
+    emailjs.sendForm('YOUR_SERVICE_ID', 'YOUR_TEMPLATE_ID', this)
+        .then(() => {
+            status.textContent = "Inquiry sent successfully!";
+            this.reset();
+        }, (err) => {
+            status.textContent = "Failed to send inquiry. Please try again.";
+            console.error(err);
+        });
+});
